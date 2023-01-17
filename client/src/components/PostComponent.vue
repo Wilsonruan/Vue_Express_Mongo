@@ -13,10 +13,12 @@
       v-bind:item="post"
       v-bind:index="index"
       v-bind:key="post._id"
-      v-on:dblclick="deletePost(post._id)"
     >
       {{ `${post.createdAt}`}}
-      <p class="text">{{ post.text }}</p>
+      <div class="posts">
+        <p class="text">{{ post.text }}</p>
+        <button lass='button' v-on:click="deletePost(post._id)">X</button>
+      </div>
     </div>
   </div>
 </template>
@@ -90,4 +92,11 @@ p.text {
   font-weight: 700;
   margin-bottom: 0;
 }
+
+div.posts {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+}
+
 </style>
